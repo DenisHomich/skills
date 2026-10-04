@@ -43,6 +43,8 @@ Step 1 depends on `docs/agents/issue-tracker.md`, which [setup-matt-pocock-skill
 
 A generic review skill that does not know your standards is the thing this design is trying to avoid: it flags what is deliberate in your codebase and misses the invariants your codebase actually depends on. So the repo's own documentation is the [primary source](https://www.aihero.dev/ai-coding-dictionary/primary-source) on the Standards axis, and **the repo always overrides**.
 
+The Standards reviewer receives the diff contents inline with its brief and the commit list. It starts with the change in hand and reads further files where the diff is genuinely ambiguous. The Spec reviewer still receives the diff command and the originating spec.
+
 The **smell baseline** is the floor underneath it, twelve Fowler code smells from _Refactoring_ ch.3: Mysterious Name, Duplicated Code, Feature Envy, Data Clumps, Primitive Obsession, Repeated Switches, Shotgun Surgery, Divergent Change, Speculative Generality, Message Chains, Middle Man, Refused Bequest. Each is a labelled heuristic ("possible Feature Envy"), never a hard violation, and each is stated as *what it is* → *how to fix*, so a finding arrives with a move attached rather than a complaint. Anything your linter already enforces is skipped by both axes.
 
 ## Common questions
@@ -80,6 +82,7 @@ No. It diffs `<fixed-point>...HEAD`, three-dot, which is measured from the merge
 - It refuses to start on a bad ref or an empty diff, before any sub-agent is spawned.
 - The report arrives as two separate blocks under `## Standards` and `## Spec`, not one merged list.
 - Every Standards finding names either a rule in one of your repo's files or one of the twelve smells, with the hunk quoted; every Spec finding quotes a line of the spec.
+- The Standards review starts with the diff already in its brief, with further file reads used to resolve ambiguity.
 - The closing summary gives a worst issue per axis and declines to pick an overall winner.
 - With no spec available, the Spec block says so instead of listing requirements it inferred from the code.
 

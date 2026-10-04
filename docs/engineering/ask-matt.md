@@ -32,6 +32,8 @@ The word the skill gives you to think with is **flow**: a path *through* the ski
 - **Standalones**, off every flow, reached for on their own terms: the prototype, the questionnaire, the research run.
 - **A vocabulary layer underneath**, the two references the other skills pull in when the words rather than the process are the problem.
 
+On the per-ticket route, [implement](https://aihero.dev/skills-implement) checks each behaviour after its edits and runs [code-review](https://aihero.dev/skills-code-review) against the branch point. Every finding must be fixed or accepted in writing before committing.
+
 ## The phase boundary
 
 The other idea it hands you is the **phase boundary**. A phase is a chunk of work inside a session (the [grilling](https://www.aihero.dev/ai-coding-dictionary/grilling), the implementation, the QA), and the boundary between two of them is the only place the question "what do I do with this context?" belongs. Mid-phase there is nothing to decide: continue, or split what is left into [subagents](https://www.aihero.dev/ai-coding-dictionary/subagent).
